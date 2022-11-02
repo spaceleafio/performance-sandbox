@@ -17,9 +17,17 @@ async function getNotes() {
   return data?.items as any[];
 }
 
+async function getUser() {
+  const res = await fetch(`${process.env.APP_URL}/api/user`);
+  const data = await res.json();
+  
+  return JSON.stringify(data);
+}
+
 export default async function NotesPage() {
 
   const notes = await getNotes();
+  const user = await getUser();
 
   return (
     <div className='w-full flex flex-col items-center'>
@@ -29,7 +37,7 @@ export default async function NotesPage() {
             return <Note key={note.id} note={note} />;
           })}
         </div>
-
+        <h1>{user}</h1>
     </div>
   )
 }
