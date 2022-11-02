@@ -1,3 +1,7 @@
 export default function Page() {
-    return <h1>Hello, Next.js!</h1>;
+    return (
+        <main>
+            <h1>NextJS 13 Testing!</h1>
+        </main>
+    );
   }
